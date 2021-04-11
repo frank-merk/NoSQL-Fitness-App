@@ -2,7 +2,7 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const routes = require('./routes');
+const routes = require('./router');
 const path = require("path");
 const db = require("./models");
 
