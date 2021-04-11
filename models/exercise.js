@@ -18,6 +18,6 @@ const exerciseSchema = new Schema({
   }
 });
 
-const Transaction = mongoose.model("Exercise", exerciseSchema);
+const Exercise = mongoose.model("Exercise", exerciseSchema);
 
 module.exports = Exercise;
