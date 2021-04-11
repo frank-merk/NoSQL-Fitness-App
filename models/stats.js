@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const workoutSchema = new Schema({
+const statsSchema = new Schema({
   name: {
     type: String,
     trim: true,
@@ -18,6 +18,6 @@ const workoutSchema = new Schema({
   }
 });
 
-const Transaction = mongoose.model("Workout", workoutSchema);
+const Stats = mongoose.model("Stats", statsSchema);
 
-module.exports = Workout;
+module.exports = Stats;
