@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const db = require("../models");
 
-router.post("/api/workouts", ({ body }, res) => {
+router.post("/workouts", ({ body }, res) => {
   db.Workout.create(body)
     .then(dbWorkout => {
       res.json(dbWorkout);
@@ -11,7 +11,7 @@ router.post("/api/workouts", ({ body }, res) => {
     });
 });
 
-router.post("/api/transaction/bulk", ({ body }, res) => {
+router.post("/transaction/bulk", ({ body }, res) => {
   Transaction.insertMany(body)
     .then(dbTransaction => {
       res.json(dbTransaction);
@@ -21,7 +21,7 @@ router.post("/api/transaction/bulk", ({ body }, res) => {
     });
 });
 
-router.get("/api/workouts", (req, res) => {
+router.get("/workouts", (req, res) => {
   db.Workout.find({}, (err, workouts) => {
     if (err) {
       console.log(err);
