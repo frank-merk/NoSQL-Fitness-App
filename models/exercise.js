@@ -9,7 +9,7 @@ const exerciseSchema = new Schema({
     required: "Enter a name for the exercise."
   },
   type: {
-    type: string,
+    type: String,
     required: "Enter a type for the exercise."
   },
   weight: {
