@@ -11,15 +11,15 @@ router.post("/workouts", ({ body }, res) => {
     });
 });
 
-router.post("/transaction/bulk", ({ body }, res) => {
-  Transaction.insertMany(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
-    })
-    .catch(err => {
-      res.status(400).json(err);
-    });
-});
+// router.post("/transaction/bulk", ({ body }, res) => {
+//   Transaction.insertMany(body)
+//     .then(dbTransaction => {
+//       res.json(dbTransaction);
+//     })
+//     .catch(err => {
+//       res.status(400).json(err);
+//     });
+// });
 
 router.get("/workouts", (req, res) => {
   db.Workout.find({}, (err, workouts) => {
@@ -62,6 +62,5 @@ router.put('/workouts/:id', (req, res) => {
     res.json(err);
   })
 })
-
 
 module.exports = router;
