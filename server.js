@@ -30,7 +30,7 @@ mongoose.connect(process.env.MONGODB_URI
 
   app.use(require("./routes"));
 
-
+  console.log("URI is ", process.env.MONGODB_URI)
 app.listen(PORT, () => {
   console.log(`Now Listening on Port ${PORT}!`);
 });
