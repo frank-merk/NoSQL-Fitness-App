@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const db = require("../models");
+const Workout = require("../models");
 
 router.post("/workouts", ({ body }, res) => {
-  db.Workout.create(body)
+  Workout.create(body)
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -22,10 +22,10 @@ router.post("/workouts", ({ body }, res) => {
 // });
 
 router.get("/workouts", (req, res) => {
-  console.log(Object.keys(db.Workout), "this is the workout model");
-  console.log(db.Workout.modelName, "this is the model name");
-  console.log(db.Workout.collection, "this is the model name");
-  db.Workout.find({}, (err, workouts) => {
+  // console.log(Object.keys(Workout), "this is the workout model");
+  // console.log(Workout.modelName, "this is the model name");
+  // console.log(Workout.collection, "this is the model name");
+  Workout.find({}, (err, workouts) => {
     if (err) {
       console.log(err);
     } else {
@@ -35,7 +35,7 @@ router.get("/workouts", (req, res) => {
 });
 
 router.get('/workouts/range', (req, res) => {
-  db.Workout.find().sort({day: -1}).limit(7)
+  Workout.find().sort({day: -1}).limit(7)
   .then(data => {
     console.log(data);
     return res.json(data);
@@ -49,7 +49,7 @@ router.get('/workouts/range', (req, res) => {
 });
 
 router.put('/workouts/:id', (req, res) => {
-  db.Workout.findOneAndUpdate({
+  Workout.findOneAndUpdate({
      _id: req.params.id
     },
     {
