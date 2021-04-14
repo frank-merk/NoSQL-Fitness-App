@@ -3,7 +3,7 @@ Mongo Based platform to log fitness routines
 
 [Live Demo](https://fitness-app-merk.herokuapp.com/)
 
-![Screenshot](public/assets/FitnessTrackerDashboard.png)
+![Screenshot](public/assets/FitnessTrackerDashboard.PNG)
 
 
 
