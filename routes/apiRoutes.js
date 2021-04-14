@@ -11,15 +11,6 @@ router.post("/workouts", ({ body }, res) => {
     });
 });
 
-// router.post("/transaction/bulk", ({ body }, res) => {
-//   Transaction.insertMany(body)
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
 
 router.get("/workouts", (req, res) => {
   // console.log(Object.keys(Workout), "this is the workout model");
@@ -40,10 +31,16 @@ router.get("/workouts", (req, res) => {
   })
 
 router.get('/workouts/range', (req, res) => {
-  Workout.find().sort({day: -1}).limit(7)
-  .then(data => {
-    console.log(data);
-    return res.json(data);
+  Workout.aggregate([
+    {
+      $addFields: {
+        totalDuration: { $sum: "$exercises.duration" }
+      }
+    }
+  ]).sort({ day: -1 }).limit(7)
+  .then(dbWorkout => {
+    console.log(dbWorkout);
+    return res.json(dbWorkout);
   })
   .catch(err => {
     if (err){
