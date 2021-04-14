@@ -25,14 +25,19 @@ router.get("/workouts", (req, res) => {
   // console.log(Object.keys(Workout), "this is the workout model");
   // console.log(Workout.modelName, "this is the model name");
   // console.log(Workout.collection, "this is the model name");
-  Workout.find({}, (err, workouts) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.json(workouts);
-    }
+
+  Workout.aggregate([
+    {
+        $addFields: {
+            totalDuration: { $sum: "$exercises.duration" }
+        }
+    },
+    ]).then(workout => {
+      res.json(workout);
+    }).catch(err => {
+      res.json(err)
+    })
   })
-});
 
 router.get('/workouts/range', (req, res) => {
   Workout.find().sort({day: -1}).limit(7)
