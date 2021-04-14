@@ -22,6 +22,9 @@ router.post("/workouts", ({ body }, res) => {
 // });
 
 router.get("/workouts", (req, res) => {
+  console.log(Object.keys(db.Workout), "this is the workout model");
+  console.log(db.Workout.modelName, "this is the model name");
+  console.log(db.Workout.collection, "this is the model name");
   db.Workout.find({}, (err, workouts) => {
     if (err) {
       console.log(err);
