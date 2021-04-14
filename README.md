@@ -1,8 +1,10 @@
 # NoSQL-Fitness-App
 Mongo Based platform to log fitness routines
+[Live Demo](https://fitness-app-merk.herokuapp.com/)
 
-![Screenshot](Assets/FitnessTrackerDashboard.png)
-![Live Demo](https://fitness-app-merk.herokuapp.com/)
+![Screenshot](assets/FitnessTrackerDashboard.png)
+
+
 
 ## Technologies used
 
