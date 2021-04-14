@@ -32,7 +32,7 @@ router.get("/workouts", (req, res) => {
 });
 
 router.get('/workouts/range', (req, res) => {
-  db.Workout.find().sort({day: -1}).limit(10)
+  db.Workout.find().sort({day: -1}).limit(7)
   .then(data => {
     console.log(data);
     return res.json(data);
